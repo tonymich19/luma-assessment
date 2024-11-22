@@ -6,6 +6,8 @@ import patientCommunicationPage from "../pages/PatientCommunicationPage"
 import staffEfficiencyPage from "../pages/StaffEfficiencyPage"
 import whoWeServePage from "../pages/WhoWeServePage"
 import eHRIntegrationsPage from "../pages/EHRIntegrationsPage"
+import learnHUBPage from "../pages/LearnHUBPage"
+import aboutUsPage from "../pages/AboutUsPage"
 
 describe('open luma health url', () =>{
 
@@ -59,21 +61,35 @@ describe('open luma health url', () =>{
         staffEfficiencyPage.getStaffEffiencyIFrame().should('be.visible');
         staffEfficiencyPage.footer.getFooter().should('be.visible');
 
-        // #Who We Serve
+        // #Who We Serve Page
         staffEfficiencyPage.header.switchToWhoWeServePage();
         cy.url().should('eq', 'https://www.lumahealth.io/who-we-serve/');
         whoWeServePage.header.getNavBar().should('be.visible');
         whoWeServePage.getWhoWeServeIFrame().should('be.visible');
         whoWeServePage.footer.getFooter();
         
-        // #EHR Integrations
+        // #EHR Integrations Page
         whoWeServePage.header.switchToEHRIntegrationsPage();
         cy.url().should('eq', 'https://www.lumahealth.io/integrations-2/');
         eHRIntegrationsPage.header.getNavBar().should('be.visible');
         eHRIntegrationsPage.getEHRIntegrationsIFrame().should('be.visible');
         eHRIntegrationsPage.footer.getFooter().should('be.visible');
 
-        
+        // #Learn HUB Page
+        eHRIntegrationsPage.header.switchToLearnHUBPage();
+        cy.url().should('eq', 'https://www.lumahealth.io/learn/');
+        learnHUBPage.header.getNavBar().should('be.visible');
+        learnHUBPage.getLearnHUBPageTitle().should('be.visible');
+        learnHUBPage.footer.getFooter().should('be.visible');
+
+        // #About Us Page
+        learnHUBPage.header.switchToAboutUSPage();
+        cy.url().should('eq', 'https://www.lumahealth.io/about-us/');
+        aboutUsPage.header.getNavBar().should('be.visible');
+        aboutUsPage.getAboutUsPageTitle().should('be.visible');
+        aboutUsPage.footer.getFooter().should('be.visible');
+
+
 
     })
 

@@ -10,6 +10,8 @@ class Header {
         navBarStaffEffieciencyLink : () => cy.get('#navbar').contains('Staff Efficiency'),
         navBarWhoWeServeLink : () => cy.get('.mobile-accordion ul .title.header-title-purple').contains('Who We Serve'),
         navBarEHRIntegrationsLink : () => cy.get('#navbar').contains('EHR Integrations'),
+        navBarLearnHUBLink : () => cy.get('.mobile-accordion .learn-hub').contains('Learn Hub'),
+        navBarAboutUsLink : () => cy.get('.main-menu-v2 > .mobile-accordion:last-child ul .title.header-title').contains('About us'),
     };
 
     getNavBar() { 
@@ -43,6 +45,16 @@ class Header {
 
     switchToEHRIntegrationsPage() {
         return this.#elements.navBarEHRIntegrationsLink()
+                                .click({force: true});
+    }   
+
+    switchToLearnHUBPage() {
+        return this.#elements.navBarLearnHUBLink()
+                                .click({force: true});
+    }   
+
+    switchToAboutUSPage() {
+        return this.#elements.navBarAboutUsLink()
                                 .click({force: true});
     }   
 
