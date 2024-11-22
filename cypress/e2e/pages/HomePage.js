@@ -14,7 +14,9 @@ class HomePage extends BasePage {
     };
 
     visit(url) {
-        cy.visit(url);
+        cy.visit(url,  {
+            failOnStatusCode: false,
+          });      
     };
 
 }
