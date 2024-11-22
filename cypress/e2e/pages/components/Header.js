@@ -12,6 +12,8 @@ class Header {
         navBarEHRIntegrationsLink : () => cy.get('#navbar').contains('EHR Integrations'),
         navBarLearnHUBLink : () => cy.get('.mobile-accordion .learn-hub').contains('Learn Hub'),
         navBarAboutUsLink : () => cy.get('.main-menu-v2 > .mobile-accordion:last-child ul .title.header-title').contains('About us'),
+        navBarGetADemoLink : () => cy.get('#navbar > .actions > .primary'),
+        navBarLogInLink : () => cy.get('#header_login'),
     };
 
     getNavBar() { 
@@ -56,7 +58,18 @@ class Header {
     switchToAboutUSPage() {
         return this.#elements.navBarAboutUsLink()
                                 .click({force: true});
-    }   
+    } 
+
+    switchToGetADemoPage() {
+        return this.#elements.navBarGetADemoLink()
+                                .click({force: true});
+    }
+
+    switchToLoginPage() {
+        return this.#elements.navBarLogInLink()
+                                .invoke('removeAttr', 'target')
+                                .click({force: true});
+    }
 
 }
 export default Header;

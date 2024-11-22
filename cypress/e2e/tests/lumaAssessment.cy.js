@@ -8,6 +8,8 @@ import whoWeServePage from "../pages/WhoWeServePage"
 import eHRIntegrationsPage from "../pages/EHRIntegrationsPage"
 import learnHUBPage from "../pages/LearnHUBPage"
 import aboutUsPage from "../pages/AboutUsPage"
+import getADemoPage from "../pages/GetADemoPage"
+import logInPage from "../pages/LogInPage"
 
 describe('open luma health url', () =>{
 
@@ -89,10 +91,18 @@ describe('open luma health url', () =>{
         aboutUsPage.getAboutUsPageTitle().should('be.visible');
         aboutUsPage.footer.getFooter().should('be.visible');
 
+        aboutUsPage.header.switchToGetADemoPage();
+        cy.url().should('eq', 'https://www.lumahealth.io/book-a-demo/');
+        getADemoPage.header.getNavBar().should('be.visible');
+        getADemoPage.getGetADemoIFrame().should('be.visible');
+        getADemoPage.footer.getFooter().should('be.visible');
+
+        getADemoPage.header.switchToLoginPage();
+        cy.url().should('eq', 'https://next.lumahealth.io/login');
+        logInPage.getWelcomeLogin().should('be.visible');
 
 
     })
-
 
 })
 
