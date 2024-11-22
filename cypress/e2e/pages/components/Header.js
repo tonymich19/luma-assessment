@@ -8,6 +8,8 @@ class Header {
         navBarRegistrationAndPrepLink : () => cy.get('#navbar').contains('Registration and Prep'),
         navBarPatientCommunicationLink : () => cy.get('#navbar').contains('Patient Communication'),
         navBarStaffEffieciencyLink : () => cy.get('#navbar').contains('Staff Efficiency'),
+        navBarWhoWeServeLink : () => cy.get('.mobile-accordion ul .title.header-title-purple').contains('Who We Serve'),
+        navBarEHRIntegrationsLink : () => cy.get('#navbar').contains('EHR Integrations'),
     };
 
     getNavBar() { 
@@ -34,7 +36,15 @@ class Header {
                                 .click({force: true});
     }
 
+    switchToWhoWeServePage() {
+        return this.#elements.navBarWhoWeServeLink()
+                                .click({force: true});
+    }
+
+    switchToEHRIntegrationsPage() {
+        return this.#elements.navBarEHRIntegrationsLink()
+                                .click({force: true});
+    }   
 
 }
-
 export default Header;

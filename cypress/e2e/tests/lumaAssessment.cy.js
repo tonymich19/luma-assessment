@@ -4,6 +4,8 @@ import accessAndRetentionPage from "../pages/AccessAndRetentionPage"
 import registrationAndPrepPage from "../pages/RegistrationAndPrepPage"
 import patientCommunicationPage from "../pages/PatientCommunicationPage"
 import staffEfficiencyPage from "../pages/StaffEfficiencyPage"
+import whoWeServePage from "../pages/WhoWeServePage"
+import eHRIntegrationsPage from "../pages/EHRIntegrationsPage"
 
 describe('open luma health url', () =>{
 
@@ -56,6 +58,21 @@ describe('open luma health url', () =>{
         staffEfficiencyPage.header.getNavBar().should('be.visible');
         staffEfficiencyPage.getStaffEffiencyIFrame().should('be.visible');
         staffEfficiencyPage.footer.getFooter().should('be.visible');
+
+        // #Who We Serve
+        staffEfficiencyPage.header.switchToWhoWeServePage();
+        cy.url().should('eq', 'https://www.lumahealth.io/who-we-serve/');
+        whoWeServePage.header.getNavBar().should('be.visible');
+        whoWeServePage.getWhoWeServeIFrame().should('be.visible');
+        whoWeServePage.footer.getFooter();
+        
+        // #EHR Integrations
+        whoWeServePage.header.switchToEHRIntegrationsPage();
+        cy.url().should('eq', 'https://www.lumahealth.io/integrations-2/');
+        eHRIntegrationsPage.header.getNavBar().should('be.visible');
+        eHRIntegrationsPage.getEHRIntegrationsIFrame().should('be.visible');
+        eHRIntegrationsPage.footer.getFooter().should('be.visible');
+
         
 
     })
