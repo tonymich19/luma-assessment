@@ -1,12 +1,16 @@
 /// <reference types="cypress" />
-import HomePage from "../pages/HomePage"
+import homePage from "../pages/HomePage"
+import accessAndRetentionPage from "../pages/AccessAndRetentionPage"
 
 describe('open luma health url', () =>{
-    const homePage = new HomePage();
+
+    before('Access base URL', () => {
+        homePage.visit('/');
+        
+    })
 
     it('Homepage Validation', () => {
 
-        homePage.visit('/');
         //Verify that the homepage loads successfully.
         cy.url().should('eq', 'https://www.lumahealth.io/');
 
@@ -15,5 +19,20 @@ describe('open luma health url', () =>{
         homePage.getHeroSection().should('be.visible');
         homePage.footer.getFooter().should('be.visible');
 
+    });
+    
+    it.only('Navigation Links', () => {
+
+        //Test that all main navigation links direct the user to the correct pages.
+        // Ensure that each page loads successfully and displays the expected content.
+        homePage.header.switchToAcessAndRetentionLink();
+        accessAndRetentionPage.header.getNavBar().should('be.visible');
+        accessAndRetentionPage.getAcessAndRetentionContentIFrame().should('be.visible');
+        accessAndRetentionPage.footer.getFooter().should('be.visible');
+
     })
+
+
 })
+
+

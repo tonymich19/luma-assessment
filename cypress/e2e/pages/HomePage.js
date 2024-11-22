@@ -1,6 +1,9 @@
 import BasePage from "./BasePage";
 
 class HomePage extends BasePage {
+    constructor(){
+        super();
+    }
 
     #elements = {
         heroSectionSpace : () => cy.get('.hero-full-width-image-section'),
@@ -10,6 +13,10 @@ class HomePage extends BasePage {
         return this.#elements.heroSectionSpace();
     };
 
+    visit(url) {
+        cy.visit(url);
+    };
+
 }
 
-export default HomePage;
+export default new HomePage();
