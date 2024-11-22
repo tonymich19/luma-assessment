@@ -4,30 +4,36 @@ class Header {
         navBar : () => cy.get('#navbar'),
         navBarLogo : () => cy.get('.navbar-logo > img'),
         navBarPlatformLink : () => cy.get('#navbar').find('li.mobile-accordion').first(),
-        navBarAccessAndRetention : () => cy.get('#navbar').contains('Access & Retention'),
-        navBarWhoWeServeLink : () => cy.get('#navbar').find('.main-menu-v2 > :nth-child(2)'),
-        navBarIntegrationsLink : () => cy.get('#navbar').find('.main-menu-v2 > :nth-child(3)'),
-        navBarLearnLink : () => cy.get('#navbar').find('.main-menu-v2 > :nth-child(4)'),
-        navBarAboutUsLink : () => cy.get('#navbar').find('.main-menu-v2 > :nth-child(5)'),
-
+        navBarAccessAndRetentionLink : () => cy.get('#navbar').contains('Access & Retention'),
+        navBarRegistrationAndPrepLink : () => cy.get('#navbar').contains('Registration and Prep'),
+        navBarPatientCommunicationLink : () => cy.get('#navbar').contains('Patient Communication'),
+        navBarStaffEffieciencyLink : () => cy.get('#navbar').contains('Staff Efficiency'),
     };
 
     getNavBar() { 
         return this.#elements.navBar();
     };
 
-    switchToAcessAndRetentionLink() {
-        return this.#elements.navBarAccessAndRetention()
+    switchToAcessAndRetentionPage() {
+        return this.#elements.navBarAccessAndRetentionLink()
                                 .click({force: true});
     };
 
+    switchToRegistrationAndPrepPage() {
+        return this.#elements.navBarRegistrationAndPrepLink()
+                                .click({force: true});
+    };
 
-    // getNavBarLogo() { return this.#elements.navBarLogo()};
-    // mouseOverNavBarPlatformLink() { return this.#elements.navBarPlatformLink()};
-    // getNavBarWhoWeServeLink() { return this.#elements.navBarWhoWeServeLink()};
-    // getNavBarIntegrationsLink() { return this.#elements.navBarIntegrationsLink()};
-    // getNavBarLearnLink() { return this.#elements.navBarLearnLink()};
-    // getNavBarAboutUsLink() { return this.#elements.navBarAboutUsLink()};
+    switchToPatientCommunicationPage() {
+        return this.#elements.navBarPatientCommunicationLink()
+                                .click({force: true});
+    }
+
+    switchToStaffEfficiencyPage() {
+        return this.#elements.navBarStaffEffieciencyLink()
+                                .click({force: true});
+    }
+
 
 }
 

@@ -1,6 +1,9 @@
 /// <reference types="cypress" />
 import homePage from "../pages/HomePage"
 import accessAndRetentionPage from "../pages/AccessAndRetentionPage"
+import registrationAndPrepPage from "../pages/RegistrationAndPrepPage"
+import patientCommunicationPage from "../pages/PatientCommunicationPage"
+import staffEfficiencyPage from "../pages/StaffEfficiencyPage"
 
 describe('open luma health url', () =>{
 
@@ -25,10 +28,35 @@ describe('open luma health url', () =>{
 
         //Test that all main navigation links direct the user to the correct pages.
         // Ensure that each page loads successfully and displays the expected content.
-        homePage.header.switchToAcessAndRetentionLink();
+
+        // #Access and Retention Page
+        homePage.header.switchToAcessAndRetentionPage();
+        cy.url().should('eq', 'https://www.lumahealth.io/patient-success-platform/patient-access-and-retention/');
         accessAndRetentionPage.header.getNavBar().should('be.visible');
         accessAndRetentionPage.getAcessAndRetentionContentIFrame().should('be.visible');
         accessAndRetentionPage.footer.getFooter().should('be.visible');
+
+        // #Registration and Prep Page
+        accessAndRetentionPage.header.switchToRegistrationAndPrepPage();
+        cy.url().should('eq', 'https://www.lumahealth.io/patient-success-platform/patient-registration/');
+        registrationAndPrepPage.header.getNavBar().should('be.visible');
+        registrationAndPrepPage.getRegistrationAndPrepIFrame().should('be.visible');
+        registrationAndPrepPage.footer.getFooter().should('be.visible');
+
+        // #Patient Communication Page
+        registrationAndPrepPage.header.switchToPatientCommunicationPage();
+        cy.url().should('eq', 'https://www.lumahealth.io/patient-success-platform/patient-communication/');
+        patientCommunicationPage.header.getNavBar().should('be.visible');
+        patientCommunicationPage.getPatientCommunicationIFrame().should('be.visible');
+        patientCommunicationPage.footer.getFooter().should('be.visible');
+
+        // #Staff Efficiency Page
+        patientCommunicationPage.header.switchToStaffEfficiencyPage();
+        cy.url().should('eq', 'https://www.lumahealth.io/patient-success-platform/staff-efficiency/');
+        staffEfficiencyPage.header.getNavBar().should('be.visible');
+        staffEfficiencyPage.getStaffEffiencyIFrame().should('be.visible');
+        staffEfficiencyPage.footer.getFooter().should('be.visible');
+        
 
     })
 

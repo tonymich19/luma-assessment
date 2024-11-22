@@ -5,12 +5,12 @@ class AccessAndRetentionPage extends BasePage {
         super();
     }
 
-    #element = {
+    #elements = {
         accessAndRetentionIFrame : () => cy.get('.iframe-full-height'),
     };
 
     getAcessAndRetentionContentIFrame() {
-        return this.#element.accessAndRetentionIFrame();
+        return this.#elements.accessAndRetentionIFrame();
     }
 
 }
