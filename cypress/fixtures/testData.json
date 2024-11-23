@@ -1,16 +1,15 @@
 {
   "urls": {
-    "home": "https://www.lumahealth.io/",
-    "patientAccessAndRetention": "https://www.lumahealth.io/patient-success-platform/patient-access-and-retention/",
-    "patientRegistration": "https://www.lumahealth.io/patient-success-platform/patient-registration/",
-    "partientCommunication": "https://www.lumahealth.io/patient-success-platform/patient-communication/",
-    "staffEffiency": "https://www.lumahealth.io/patient-success-platform/staff-efficiency/",
-    "whoWeServe": "https://www.lumahealth.io/who-we-serve/",
-    "eHRIntegrations": "https://www.lumahealth.io/integrations-2/",
-    "learnHUB": "https://www.lumahealth.io/learn/",
-    "aboutUs": "https://www.lumahealth.io/about-us/",
-    "getADemo": "https://www.lumahealth.io/book-a-demo/",
-    "logIn": "https://next.lumahealth.io/login"
-
+      "home": "https://www.lumahealth.io/",
+      "patientAccessAndRetention": "https://www.lumahealth.io/patient-success-platform/patient-access-and-retention/",
+      "patientRegistration": "https://www.lumahealth.io/patient-success-platform/patient-registration/",
+      "partientCommunication": "https://www.lumahealth.io/patient-success-platform/patient-communication/",
+      "staffEffiency": "https://www.lumahealth.io/patient-success-platform/staff-efficiency/",
+      "whoWeServe": "https://www.lumahealth.io/who-we-serve/",
+      "eHRIntegrations": "https://www.lumahealth.io/integrations-2/",
+      "learnHUB": "https://www.lumahealth.io/learn/",
+      "aboutUs": "https://www.lumahealth.io/about-us/",
+      "getADemo": "https://www.lumahealth.io/book-a-demo/",
+      "logIn": "https://next.lumahealth.io/login"
   }
 }
