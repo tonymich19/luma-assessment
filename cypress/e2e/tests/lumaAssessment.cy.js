@@ -16,7 +16,7 @@ describe('Luma Health Navigation Tests', () => {
     it('Homepage Validation', () => {
         //Verify that the homepage loads successfully. 
         //Check that main elements on the homepage are visible and functional.
-        validatePage(pages.homePage, urls.home);
+        validatePage(pages.homePage, urls.home); 
     });
 
     it('Navigation Links', () => {
