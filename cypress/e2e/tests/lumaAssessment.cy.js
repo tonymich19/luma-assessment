@@ -10,7 +10,7 @@ describe('Luma Health Navigation Tests', () => {
 
         cy.viewport(Number(viewportWidth), Number(viewportHeight));
         cy.log(`Running tests in resolution: ${viewportWidth}x${viewportHeight}`);
-        pages.homePage.visit('/');
+        pages.homePage.visit('/'); 
     });
 
     it('Homepage Validation', () => {
