@@ -5,6 +5,11 @@ import { validatePage } from "../../utils/pageValidation";
 
 describe('Luma Health Navigation Tests', () => {
     beforeEach('Access base URL', () => {
+        const viewportWidth = Cypress.env('viewportWidth') || Cypress.config('viewportWidth');
+        const viewportHeight = Cypress.env('viewportHeight') || Cypress.config('viewportHeight');
+
+        cy.viewport(Number(viewportWidth), Number(viewportHeight));
+        cy.log(`Running tests in resolution: ${viewportWidth}x${viewportHeight}`);
         pages.homePage.visit('/');
     });
 
@@ -28,7 +33,7 @@ describe('Luma Health Navigation Tests', () => {
             { page: pages.learnHUBPage, url: urls.learnHUB, linkName: 'learnHUB' },
             { page: pages.aboutUsPage, url: urls.aboutUs, linkName: 'aboutUs' },
             { page: pages.getADemoPage, url: urls.getADemo, linkName: 'getADemo' },
-            { page: pages.logInPage, url: urls.logIn, linkName: 'login'}, 
+            { page: pages.logInPage, url: urls.logIn, linkName: 'login' },
         ];
 
         pages.homePage.header.navigateTo(navigationSteps[0].linkName)

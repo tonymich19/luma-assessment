@@ -16,6 +16,8 @@ module.exports = defineConfig({
   e2e: {
     experimentalSessionAndOrigin: true,
     baseUrl: 'https://www.lumahealth.io/',
+    viewportWidth: 1000,
+    viewportHeight: 660,
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
       return config;
