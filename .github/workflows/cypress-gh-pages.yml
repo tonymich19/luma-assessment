@@ -15,9 +15,12 @@ jobs:
     strategy:
       matrix:
         viewport:
-          - "375x667"
-          - "768x1024"
-          - "1280x720"
+          - width: 375
+            height: 667
+          - width: 768
+            height: 1024
+          - width: 1280
+            height: 720
 
     steps:
     - name: Checkout repository
@@ -33,18 +36,18 @@ jobs:
 
     - name: Run Cypress Tests with Viewport
       run: |
-        mkdir -p cypress/reports/${{ matrix.viewport }}
+        mkdir -p cypress/reports/${{ matrix.viewport.width }}x${{ matrix.viewport.height }}
         npx cypress run --spec cypress/e2e/tests/lumaAssessment.cy.js \
           --browser chrome \
-          --env viewportWidth=${{ matrix.viewport.split('x')[0] }},viewportHeight=${{ matrix.viewport.split('x')[1] }} \
+          --env viewportWidth=${{ matrix.viewport.width }},viewportHeight=${{ matrix.viewport.height }} \
           --reporter cypress-mochawesome-reporter \
-          --reporter-options reportDir=cypress/reports/${{ matrix.viewport }}
+          --reporter-options reportDir=cypress/reports/${{ matrix.viewport.width }}x${{ matrix.viewport.height }}
 
     - name: Upload Test Results
       uses: actions/upload-artifact@v3
       with:
-        name: cypress-reports-${{ matrix.viewport }}
-        path: cypress/reports/${{ matrix.viewport }}
+        name: cypress-reports-${{ matrix.viewport.width }}x${{ matrix.viewport.height }}
+        path: cypress/reports/${{ matrix.viewport.width }}x${{ matrix.viewport.height }}
 
     - name: Publish Report to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
