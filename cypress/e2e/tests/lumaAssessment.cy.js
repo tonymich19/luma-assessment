@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import pages from "../pages/pages";
+import pages from "../../pages/pages";
 import { urls } from "../../fixtures/testData";
 import { validatePage } from "../../utils/pageValidation";
 
