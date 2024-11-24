@@ -9,7 +9,7 @@ class PatientCommunicationPage extends BasePage {
         patientCommunicationIFrame : () => cy.get('.iframe-full-height'),
     }
 
-    getPatientCommunicationIFrame(){
+    getPageContent() {
         return this.#elements.patientCommunicationIFrame();
     }
 

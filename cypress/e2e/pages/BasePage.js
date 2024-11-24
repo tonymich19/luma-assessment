@@ -7,5 +7,9 @@ class BasePage {
         this.footer = new Footer();
     };
 
+    getPageContent() {
+        
+    }
+
 }
 export default BasePage;

@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
-import pages from "../pages/pages"; // Centraliza todas as páginas
-import { urls } from "../../fixtures/testData"; // Importa URLs diretamente
-import { validatePage } from "../../utils/pageValidation"; // Função utilitária para validação de páginas
+import pages from "../pages/pages";
+import { urls } from "../../fixtures/testData";
+import { validatePage } from "../../utils/pageValidation";
 
 describe('Luma Health Navigation Tests', () => {
     beforeEach('Access base URL', () => {
@@ -9,10 +9,15 @@ describe('Luma Health Navigation Tests', () => {
     });
 
     it('Homepage Validation', () => {
-        validatePage(pages.homePage, urls.home, ['heroSection']);
+        //Verify that the homepage loads successfully. 
+        //Check that main elements on the homepage are visible and functional.
+        validatePage(pages.homePage, urls.home);
     });
 
-    it.only('Navigation Links', () => {
+    it('Navigation Links', () => {
+
+        //Test that all main navigation links direct the user to the correct pages. 
+        //Ensure that each page loads uccessfully and displays the expected content.
         const navigationSteps = [
             { page: pages.accessAndRetentionPage, url: urls.patientAccessAndRetention, linkName: 'accessAndRetention' },
             { page: pages.registrationAndPrepPage, url: urls.patientRegistration, linkName: 'registrationAndPrep' },
@@ -23,25 +28,30 @@ describe('Luma Health Navigation Tests', () => {
             { page: pages.learnHUBPage, url: urls.learnHUB, linkName: 'learnHUB' },
             { page: pages.aboutUsPage, url: urls.aboutUs, linkName: 'aboutUs' },
             { page: pages.getADemoPage, url: urls.getADemo, linkName: 'getADemo' },
+            { page: pages.logInPage, url: urls.logIn, linkName: 'login'}, 
         ];
 
-        // Realiza a primeira navegação manualmente
-        pages.homePage.header.navigateTo(navigationSteps[0].linkName);
-        validatePage(navigationSteps[0].page, navigationSteps[0].url);
+        pages.homePage.header.navigateTo(navigationSteps[0].linkName)
+            .then(() => {
+                validatePage(navigationSteps[0].page, navigationSteps[0].url);
+            });
 
-        // Realiza as navegações subsequentes
         for (let i = 1; i < navigationSteps.length; i++) {
             const previousStep = navigationSteps[i - 1];
             const currentStep = navigationSteps[i];
 
-            previousStep.page.header.navigateTo(currentStep.linkName);
-            validatePage(currentStep.page, currentStep.url, i === navigationSteps.length - 1 ? ['welcomeLogin'] : []);
+            previousStep.page.header.navigateTo(currentStep.linkName)
+                .then(() => {
+                    validatePage(currentStep.page, currentStep.url, i === navigationSteps.length - 1 ? ['welcomeLogin'] : []);
+                });
         }
     });
 
     it('404 Page Validation', () => {
+
+        //Verify that navigating to a non-existent page returns a 404 error. 
+        //Check that the 404 error page displays correctly with the expected messaging
         pages.homePage.visit('/nonexistentpage');
-        // Validações específicas da página 404
         pages.notFoundPage
             .getPageNotFoundTitle()
             .should('be.visible')

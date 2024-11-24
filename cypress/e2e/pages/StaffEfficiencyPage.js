@@ -9,7 +9,7 @@ class StaffEfficiencyPage extends BasePage {
         staffEffiencyIFrame : () => cy.get('.iframe-full-height'),
     }
 
-    getStaffEffiencyIFrame(){
+    getPageContent() {
         return this.#elements.staffEffiencyIFrame();
     }
 

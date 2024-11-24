@@ -9,7 +9,7 @@ class WhoWeServePage extends BasePage {
         whoWeServeIFrame : () => cy.get('.iframe-full-height'),
     }
 
-    getWhoWeServeIFrame(){
+    getPageContent() {
         return this.#elements.whoWeServeIFrame();
     }
 

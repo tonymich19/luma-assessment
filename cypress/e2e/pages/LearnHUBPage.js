@@ -9,7 +9,7 @@ class LearnHUBPage extends BasePage {
         learnHUBPageTitle : () => cy.get('h1'),
     }
 
-    getLearnHUBPageTitle(){
+    getPageContent() {
         return this.#elements.learnHUBPageTitle();
     }
 

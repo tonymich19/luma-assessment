@@ -9,7 +9,7 @@ class AboutUSPage extends BasePage{
         aboutUsPageTitle : () => cy.get('h1'),
     }
 
-    getAboutUsPageTitle(){
+    getPageContent() {
         return this.#elements.aboutUsPageTitle();
     }
 

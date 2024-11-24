@@ -9,7 +9,7 @@ class HomePage extends BasePage {
         heroSectionSpace : () => cy.get('.hero-full-width-image-section'),
     };
 
-    getHeroSection() {
+    getPageContent() {
         return this.#elements.heroSectionSpace();
     };
 

@@ -9,7 +9,7 @@ class EHRIntegrationsPage extends BasePage {
         eHRIntegrationsIFrame : () => cy.get('.iframe-full-height'),
     }
 
-    getEHRIntegrationsIFrame(){
+    getPageContent() {
         return this.#elements.eHRIntegrationsIFrame();
     }
 

@@ -1,17 +1,12 @@
-import BasePage from "./BasePage";
+class LoginPage {
 
-class LoginPage extends BasePage {
-        constructor(){
-            super();
-        };
-    
-        #elements = {
-            welcomeLogin : () => cy.get('.jss27')
-        }
-    
-        getWelcomeLogin(){
-            return this.#elements.welcomeLogin();
-        }
-    
+    #elements = {
+        welcomeLogin: () => cy.get('.jss27'),
     }
-    export default new LoginPage();
+
+    getPageContent() {
+        return this.#elements.welcomeLogin();
+    }
+
+}
+export default new LoginPage();

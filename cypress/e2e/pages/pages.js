@@ -8,7 +8,7 @@ import eHRIntegrationsPage from "./EHRIntegrationsPage";
 import learnHUBPage from "./LearnHUBPage";
 import aboutUsPage from "./AboutUsPage";
 import getADemoPage from "./GetADemoPage";
-import logInPage from "./LogInPage";
+import logInPage from "./LoginPage";
 import notFoundPage from "./NotFoundPage";
 
 export default {

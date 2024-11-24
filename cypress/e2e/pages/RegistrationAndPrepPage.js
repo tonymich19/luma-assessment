@@ -10,7 +10,7 @@ class RegistrationAndPrepPage extends BasePage {
         registrationAndPrepIFrame : () => cy.get('.iframe-full-height'),
     };
 
-    getRegistrationAndPrepIFrame() {
+    getPageContent() {
         return this.#elements.registrationAndPrepIFrame();
     }
 

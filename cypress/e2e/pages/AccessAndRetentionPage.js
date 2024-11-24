@@ -1,17 +1,17 @@
-import BasePage from "./BasePage";
+import BasePage from './BasePage';
 
 class AccessAndRetentionPage extends BasePage {
-    constructor(){
+    constructor() {
         super();
     }
 
     #elements = {
-        accessAndRetentionIFrame : () => cy.get('.iframe-full-height'),
+        accessAndRetentionIFrame: () => cy.get('.iframe-full-height'),
     };
 
-    getAcessAndRetentionContentIFrame() {
+    getPageContent() {
         return this.#elements.accessAndRetentionIFrame();
     }
-
 }
+
 export default new AccessAndRetentionPage();

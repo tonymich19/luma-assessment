@@ -9,7 +9,7 @@ class GetADemoPage extends BasePage {
         getADemoIFrame : () => cy.get('.iframe-full-height')
     }
 
-    getGetADemoIFrame(){
+    getPageContent() {
         return this.#elements.getADemoIFrame();
     }
 
