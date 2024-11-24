@@ -31,21 +31,9 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Debug viewport matrix
-      run: echo "Running tests with viewport: ${{ matrix.viewport }}"
-
     - name: Run Cypress Tests with Viewport
       run: |
-        # Extrai as dimensões da viewport
-        VIEWPORT_WIDTH=$(echo "${{ matrix.viewport }}" | cut -d 'x' -f 1)
-        VIEWPORT_HEIGHT=$(echo "${{ matrix.viewport }}" | cut -d 'x' -f 2)
-
-        # Executa os testes do Cypress com as dimensões especificadas
-        npx cypress run --spec cypress/e2e/tests/lumaAssessment.cy.js \
-          --browser chrome \
-          --env viewportWidth=$VIEWPORT_WIDTH,viewportHeight=$VIEWPORT_HEIGHT \
-          --reporter cypress-mochawesome-reporter \
-          --reporter-options reportDir=cypress/reports/${{ matrix.viewport }}
+        npx cypress run
 
     - name: Upload Test Results
       uses: actions/upload-artifact@v3
