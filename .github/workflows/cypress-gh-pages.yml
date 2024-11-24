@@ -33,7 +33,14 @@ jobs:
 
     - name: Run Cypress Tests with Viewport
       run: |
-        npx cypress run
+        VIEWPORT_WIDTH=$(echo "${{ matrix.viewport }}" | cut -d 'x' -f 1)
+        VIEWPORT_HEIGHT=$(echo "${{ matrix.viewport }}" | cut -d 'x' -f 2)
+
+        npx cypress run --spec cypress/e2e/tests/lumaAssessment.cy.js \
+          --browser chrome \
+          --env viewportWidth=$VIEWPORT_WIDTH,viewportHeight=$VIEWPORT_HEIGHT \
+          --reporter cypress-mochawesome-reporter \
+          --reporter-options reportDir=cypress/reports/${{ matrix.viewport }}
 
     - name: Upload Test Results
       uses: actions/upload-artifact@v3
