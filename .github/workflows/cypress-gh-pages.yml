@@ -49,7 +49,31 @@ jobs:
         name: cypress-reports-${{ matrix.viewport.width }}x${{ matrix.viewport.height }}
         path: cypress/reports/${{ matrix.viewport.width }}x${{ matrix.viewport.height }}
 
-    - name: Publish Report to GitHub Pages
+  publish-reports:
+    runs-on: ubuntu-latest
+    needs: cypress-tests  # Aguarda a conclusão dos jobs acima
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Download all test artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: cypress-reports-375x667
+        path: cypress/reports/375x667
+
+    - uses: actions/download-artifact@v3
+      with:
+        name: cypress-reports-768x1024
+        path: cypress/reports/768x1024
+
+    - uses: actions/download-artifact@v3
+      with:
+        name: cypress-reports-1280x720
+        path: cypress/reports/1280x720
+
+    - name: Publish Combined Reports to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
