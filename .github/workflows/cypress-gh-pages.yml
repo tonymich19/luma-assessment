@@ -36,7 +36,6 @@ jobs:
         mkdir -p cypress/reports/${{ matrix.viewport }}
         npx cypress run --spec cypress/e2e/tests/lumaAssessment.cy.js \
           --browser chrome \
-          --env viewportWidth=${{ matrix.viewport.split('x')[0] }},viewportHeight=${{ matrix.viewport.split('x')[1] }} \
           --reporter cypress-mochawesome-reporter \
           --reporter-options reportDir=cypress/reports/${{ matrix.viewport }}
 
