@@ -33,12 +33,10 @@ jobs:
 
     - name: Run Cypress Tests with Viewport
       run: |
-        VIEWPORT_WIDTH=$(echo "${{ matrix.viewport }}" | cut -d 'x' -f 1)
-        VIEWPORT_HEIGHT=$(echo "${{ matrix.viewport }}" | cut -d 'x' -f 2)
-
+        mkdir -p cypress/reports/${{ matrix.viewport }}
         npx cypress run --spec cypress/e2e/tests/lumaAssessment.cy.js \
           --browser chrome \
-          --env viewportWidth=$VIEWPORT_WIDTH,viewportHeight=$VIEWPORT_HEIGHT \
+          --env viewportWidth=${{ matrix.viewport.split('x')[0] }},viewportHeight=${{ matrix.viewport.split('x')[1] }} \
           --reporter cypress-mochawesome-reporter \
           --reporter-options reportDir=cypress/reports/${{ matrix.viewport }}
 
@@ -53,3 +51,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: cypress/reports
+        keep_files: true
