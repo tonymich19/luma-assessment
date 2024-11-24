@@ -11,7 +11,6 @@ import getADemoPage from "./GetADemoPage";
 import logInPage from "./LoginPage";
 import notFoundPage from "./NotFoundPage";
 
-
 export default {
     homePage,
     accessAndRetentionPage,
