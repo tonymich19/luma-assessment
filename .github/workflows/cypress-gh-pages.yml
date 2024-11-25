@@ -79,3 +79,11 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: cypress/reports
         keep_files: true
+    
+    - name: Generate Report Links
+      run: |
+        echo "### Cypress Test Reports" > summary.md
+        echo "- [1280x720 Report](https://tonymich19.github.io/luma-assessment/1280x720/index.html)" >> summary.md
+        echo "- [768x1024 Report](https://tonymich19.github.io/luma-assessment/768x1024/index.html)" >> summary.md
+        echo "- [375x667 Report](https://tonymich19.github.io/luma-assessment/375x667/index.html)" >> summary.md
+        cat summary.md
